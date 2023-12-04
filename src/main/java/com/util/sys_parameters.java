@@ -41,15 +41,18 @@ public class sys_parameters {
 
     public static final int gbc[][] = { {0,0,1,1,0,0,none,west},    //jlb_account
                                         {0,1,1,1,0,0,none,west},    //jlb_password
-                                        {0,2,1,1,0,0,none,west},    //jlb_date
-                                        {1,2,1,1,0,0,none,east},    //jlb_month
-                                        {3,2,1,1,0,0,none,east},    //jlb_day
-                                        {0,3,4,1,1,0,both,center},  //jlb_datetime
+                                        {0,2,1,1,1,1,none,west},    //jlb_date
+                                        {1,2,1,1,0,0,none,center},  //jlb_month
+                                        {3,2,1,1,0,0,none,center},  //jlb_day
+                                        {0,3,4,1,1,0,both,west},    //jlb_datetime
                                         {1,0,4,1,1,0,both,west},    //jtf_account
-                                        {1,1,4,1,1,0,both,west},    //jpf_password
+                                        {1,1,4,1,1,0,both,west},    //jtf_password
                                         {2,2,1,1,0,1,both,east},    //jco_month
-                                        {4,2,1,1,0,1,both,east},    //jco_day
-                                        {4,3,1,1,0,0,none,west},    //jbt_ask
+                                        {4,2,1,1,0,0,both,east},    //jco_day
+                                        {4,3,1,1,0,0,none,east},    //jbt_ask
 
     }; 
+
+    public static final String login = "https://as1.npu.edu.tw/npu/";
+
 }

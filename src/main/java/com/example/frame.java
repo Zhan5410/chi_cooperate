@@ -3,16 +3,22 @@ package com.example;
 import com.util.sys_parameters;
 
 import java.awt.GridBagLayout;
-import javax.swing.JFrame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class chi_cooperate 
+import javax.swing.JFrame;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+
+public class frame 
 {
     private void obj_set(){
         //set_frame
         obj_list.jfr.setTitle(sys_parameters.frame_name);
         obj_list.jfr.setLayout(new GridBagLayout());
         obj_list.jfr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        obj_list.jfr.setSize(800,600);
+        obj_list.jfr.setSize(300,150);
+        obj_list.jfr.setResizable(false);
 
         //set_labeltext
         for(int i=0 ; i<obj_list.jlb.length ; i++){
@@ -33,6 +39,55 @@ public class chi_cooperate
     }
 
     private void obj_function(){
+
+        //handel user_input
+        obj_list.jtf_account.getDocument().addDocumentListener(new DocumentListener() {
+
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                obj_list.setUser_account(obj_list.jtf_account.getText());
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                obj_list.setUser_account(obj_list.jtf_account.getText());
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                
+            }
+            
+        });
+        obj_list.jpf_password.getDocument().addDocumentListener(new DocumentListener() {
+
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                obj_list.setUesr_password(String.valueOf(obj_list.jpf_password.getPassword()));
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                obj_list.setUesr_password(String.valueOf(obj_list.jpf_password.getPassword()));
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                
+            }
+            
+        });
+
+        //handel button
+        obj_list.jbt_ask.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println(obj_list.getUser_account());
+                System.out.println(obj_list.getUesr_password());
+            }
+            
+        });
 
     }
 
@@ -74,7 +129,7 @@ public class chi_cooperate
 
     public static void main( String[] args )
     {
-        chi_cooperate start = new chi_cooperate();
+        frame start = new frame();
         start.obj_set();
         start.obj_function();
         start.obj_add();

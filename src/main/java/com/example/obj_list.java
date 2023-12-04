@@ -41,4 +41,21 @@ public class obj_list {
     };
 
     static JButton jbt_ask = new JButton();
+
+    private static String user_account = new String();
+    public static String getUser_account() {
+        return user_account;
+    }
+    public static void setUser_account(String user_account) {
+        obj_list.user_account = user_account;
+    }
+    
+    private static String uesr_password = new String();
+    public static String getUesr_password() {
+        return uesr_password;
+    }
+    public static void setUesr_password(String uesr_password) {
+        obj_list.uesr_password = uesr_password;
+    }
+
 }
