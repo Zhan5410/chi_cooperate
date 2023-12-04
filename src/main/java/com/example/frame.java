@@ -5,16 +5,13 @@ import com.util.sys_parameters;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.InputMethodEvent;
-import java.awt.event.InputMethodListener;
 
 import javax.swing.JFrame;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
-public class chi_cooperate 
+public class frame 
 {
-    private String user_account = "";
-    private String user_password = "";
-
     private void obj_set(){
         //set_frame
         obj_list.jfr.setTitle(sys_parameters.frame_name);
@@ -44,29 +41,39 @@ public class chi_cooperate
     private void obj_function(){
 
         //handel user_input
-        obj_list.jtf_account.addInputMethodListener(new InputMethodListener() {
+        obj_list.jtf_account.getDocument().addDocumentListener(new DocumentListener() {
 
             @Override
-            public void inputMethodTextChanged(InputMethodEvent event) {
-                user_account = new String(obj_list.jtf_account.getText());
+            public void insertUpdate(DocumentEvent e) {
+                obj_list.setUser_account(obj_list.jtf_account.getText());
             }
 
             @Override
-            public void caretPositionChanged(InputMethodEvent event) {
-                throw new UnsupportedOperationException("Unimplemented method 'caretPositionChanged'");
+            public void removeUpdate(DocumentEvent e) {
+                obj_list.setUser_account(obj_list.jtf_account.getText());
             }
 
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                
+            }
+            
         });
-        obj_list.jpf_password.addInputMethodListener(new InputMethodListener() {
+        obj_list.jpf_password.getDocument().addDocumentListener(new DocumentListener() {
 
             @Override
-            public void inputMethodTextChanged(InputMethodEvent event) {
-                user_password = new String(obj_list.jpf_password.getPassword());
+            public void insertUpdate(DocumentEvent e) {
+                obj_list.setUesr_password(String.valueOf(obj_list.jpf_password.getPassword()));
             }
 
             @Override
-            public void caretPositionChanged(InputMethodEvent event) {
-                throw new UnsupportedOperationException("Unimplemented method 'caretPositionChanged'");
+            public void removeUpdate(DocumentEvent e) {
+                obj_list.setUesr_password(String.valueOf(obj_list.jpf_password.getPassword()));
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                
             }
             
         });
@@ -76,9 +83,8 @@ public class chi_cooperate
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(user_account);
-                System.out.println(user_password);
-                System.out.println(obj_list.jpf_password.getPassword());
+                System.out.println(obj_list.getUser_account());
+                System.out.println(obj_list.getUesr_password());
             }
             
         });
@@ -123,7 +129,7 @@ public class chi_cooperate
 
     public static void main( String[] args )
     {
-        chi_cooperate start = new chi_cooperate();
+        frame start = new frame();
         start.obj_set();
         start.obj_function();
         start.obj_add();
