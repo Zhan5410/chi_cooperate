@@ -3,16 +3,25 @@ package com.example;
 import com.util.sys_parameters;
 
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.InputMethodEvent;
+import java.awt.event.InputMethodListener;
+
 import javax.swing.JFrame;
 
 public class chi_cooperate 
 {
+    private String user_account = "";
+    private String user_password = "";
+
     private void obj_set(){
         //set_frame
         obj_list.jfr.setTitle(sys_parameters.frame_name);
         obj_list.jfr.setLayout(new GridBagLayout());
         obj_list.jfr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        obj_list.jfr.setSize(800,600);
+        obj_list.jfr.setSize(300,150);
+        obj_list.jfr.setResizable(false);
 
         //set_labeltext
         for(int i=0 ; i<obj_list.jlb.length ; i++){
@@ -33,6 +42,46 @@ public class chi_cooperate
     }
 
     private void obj_function(){
+
+        //handel user_input
+        obj_list.jtf_account.addInputMethodListener(new InputMethodListener() {
+
+            @Override
+            public void inputMethodTextChanged(InputMethodEvent event) {
+                user_account = new String(obj_list.jtf_account.getText());
+            }
+
+            @Override
+            public void caretPositionChanged(InputMethodEvent event) {
+                throw new UnsupportedOperationException("Unimplemented method 'caretPositionChanged'");
+            }
+
+        });
+        obj_list.jpf_password.addInputMethodListener(new InputMethodListener() {
+
+            @Override
+            public void inputMethodTextChanged(InputMethodEvent event) {
+                user_password = new String(obj_list.jpf_password.getPassword());
+            }
+
+            @Override
+            public void caretPositionChanged(InputMethodEvent event) {
+                throw new UnsupportedOperationException("Unimplemented method 'caretPositionChanged'");
+            }
+            
+        });
+
+        //handel button
+        obj_list.jbt_ask.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println(user_account);
+                System.out.println(user_password);
+                System.out.println(obj_list.jpf_password.getPassword());
+            }
+            
+        });
 
     }
 
