@@ -1,33 +1,44 @@
 package com.example;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By.ByClassName;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.util.sys_parameters;
 
 public class contect {
-    public static void main(String[] args) {
-        try {
-            //連接到網站
-            Document document = Jsoup.connect(sys_parameters.login).get();
 
-            //選擇元素
-            Element inputElement = document.select("input").first();
+    private void contect2web(){
+        System.setProperty("webdriver.chrome.driver","D:\\Chrome\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+        WebDriver wd = new ChromeDriver(); //googlechrome
+        WebDriverWait ww = new WebDriverWait(wd, Duration.ofSeconds(10));
+        wd.get(sys_parameters.login);
 
-            // 檢查是否找到了該元素
-            if (inputElement != null) {
-                // 修改 <input> 元素的 value 屬性
-                inputElement.attr("value", "新的值");
+        List<WebElement> frames = wd.findElements(By.tagName("frame"));
+        List<WebElement> iframes = wd.findElements(By.tagName("iframe"));
 
-                // 打印修改後的 HTML 文檔
-                System.out.println(document.outerHtml());
-            } else {
-                System.out.println("未找到指定的 <input> 元素。");
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        for (int i = 0; i < frames.size(); i++) {
+            WebElement frame = frames.get(i);
+            System.out.println("Frame " + i + " attributes: " + frame.getAttribute("name"));
         }
+        
+        for (int i = 0; i < iframes.size(); i++) {
+            WebElement iframe = iframes.get(i);
+            System.out.println("IFrame " + i + " attributes: " + iframe.getAttribute("name"));
+        }
+        
+        
+    }
+
+    public static void main(String[] args) {
+        contect start = new contect();
+        start.contect2web();
     }
 }
