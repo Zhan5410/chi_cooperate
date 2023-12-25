@@ -83,8 +83,7 @@ public class frame
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println(obj_list.getUser_account());
-                System.out.println(obj_list.getUesr_password());
+                contect.main(null);
             }
             
         });

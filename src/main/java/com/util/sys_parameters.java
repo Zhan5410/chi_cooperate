@@ -53,6 +53,6 @@ public class sys_parameters {
 
     }; 
 
-    public static final String login = "https://as1.npu.edu.tw/npu/";
+    public static final String pagemain = "https://as1.npu.edu.tw/npu";
 
 }
