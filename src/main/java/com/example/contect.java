@@ -17,6 +17,7 @@ public class contect {
         System.setProperty("webdriver.chrome.driver","D:\\Chrome\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
         WebDriver wd = new ChromeDriver(); //googlechrome
 
+
         wd.get(sys_parameters.pagemain);
         wd.switchTo().frame("Main");
 
@@ -114,6 +115,7 @@ public class contect {
         //System.out.println(dateROC + "dateROC");
         return dateROC;
     }
+
 
     public static void main(String[] args) {
         contect start = new contect();
