@@ -15,6 +15,7 @@ public class contect {
         System.setProperty("webdriver.chrome.driver","D:\\Chrome\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
         WebDriver wd = new ChromeDriver(); //googlechrome
 
+
         wd.get(sys_parameters.pagemain);
         wd.switchTo().frame("Main");
         WebElement account = wd.findElement(By.id("uid"));
@@ -81,6 +82,7 @@ public class contect {
         askforwhy.clear();
         askforwhy.sendKeys("身體不適");*/
     }
+
 
     public static void main(String[] args) {
         contect start = new contect();
