@@ -21,10 +21,9 @@
   <dependencies>
 
     <dependency>
-      <groupId>org.openqa.selenium</groupId>
-      <artifactId>selenium-rc</artifactId>
-      <version>1.0-20081010.060147</version>
-      <type>pom</type>
+      <groupId>org.shakespeareframework</groupId>
+      <artifactId>selenium</artifactId>
+      <version>0.7</version>
     </dependency>
 
     <dependency>
@@ -34,12 +33,6 @@
       <scope>test</scope>
     </dependency>
 
-    <dependency>
-      <!-- jsoup HTML parser library @ http://jsoup.org/ -->
-      <groupId>org.jsoup</groupId>
-      <artifactId>jsoup</artifactId>
-      <version>1.10.2</version>
-    </dependency>
   </dependencies>
 
   <build>

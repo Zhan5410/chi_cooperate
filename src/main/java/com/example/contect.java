@@ -1,12 +1,10 @@
 package com.example;
 
-import org.jsoup.nodes.Document;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+//import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import com.util.sys_parameters;
@@ -49,7 +47,7 @@ public class contect {
 
         WebElement sday = wd.findElement(By.id("etxt_sday"));
         Select selectSday = new Select(sday);
-        selectSday.selectByValue("15");
+        selectSday.selectByValue("16");
         //selectSday.selectByValue(null);
 
         WebElement emonth = wd.findElement(By.id("etxt_emonth"));
@@ -59,13 +57,17 @@ public class contect {
 
         WebElement eday = wd.findElement(By.id("etxt_eday"));
         Select selectEday = new Select(eday);
-        selectEday.selectByValue("15");
+        selectEday.selectByValue("16");
         //selectEday.selectByValue("null");
 
         button = wd.findElement(By.id("send"));
         button.click();
 
-        JavascriptExecutor js = (JavascriptExecutor)wd;
+
+        WebElement rtxt_today = wd.findElement(By.id("rtxt_today"));
+        rtxt_today.submit();
+        //JavascriptExecutor js = (JavascriptExecutor)wd;
+        
         //TODO 此處接入腳本
         //js.executeScript();
         /*WebElement today = wd.findElement(By.id("rtxt_today"));
