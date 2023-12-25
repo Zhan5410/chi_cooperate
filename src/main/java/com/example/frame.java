@@ -102,6 +102,9 @@ public class frame
         //handel password_field
         obj_list.GUI.add(obj_list.jpf_password);
 
+        //handel text_area
+        obj_list.GUI.add(obj_list.jta_state);
+
         //handel combobox
         for(int i=0 ; i<obj_list.jco.length ; i++){
             obj_list.GUI.add(obj_list.jco[i]);

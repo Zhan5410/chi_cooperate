@@ -9,6 +9,7 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class obj_list {
@@ -21,18 +22,22 @@ public class obj_list {
     static JLabel jlb_date = new JLabel();
     static JLabel jlb_month = new JLabel();
     static JLabel jlb_day = new JLabel();
-    static JLabel jlb_datetime = new JLabel();
+    static JLabel jlb_askforwhy = new JLabel();
+    static JLabel jlb_askstate = new JLabel();
     static JLabel[] jlb = new JLabel[]{ jlb_account,
                                         jlb_password,
                                         jlb_date,
                                         jlb_month,
                                         jlb_day,
-                                        jlb_datetime,
+                                        jlb_askforwhy,
+                                        jlb_askstate
     };
 
     static JTextField jtf_account = new JTextField();
 
     static JPasswordField jpf_password = new JPasswordField();
+
+    static JTextArea jta_state = new JTextArea();
 
     static JComboBox<String> jco_month = new JComboBox<String>();
     static JComboBox<String> jco_day = new JComboBox<String>();

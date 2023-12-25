@@ -17,7 +17,8 @@ public class sys_parameters {
                                                 "日期",
                                                 "月",
                                                 "日",
-                                                "假別：事假",
+                                                "假別：病假",
+                                                "請假狀態"
     };
 
     public static final String month[] = {  "1",
@@ -45,8 +46,10 @@ public class sys_parameters {
                                         {1,2,1,1,0,0,none,center},  //jlb_month
                                         {3,2,1,1,0,0,none,center},  //jlb_day
                                         {0,3,4,1,1,0,both,west},    //jlb_datetime
+                                        {0,4,1,1,0,1,both,west},    //jlb_askstate
                                         {1,0,4,1,1,0,both,west},    //jtf_account
                                         {1,1,4,1,1,0,both,west},    //jtf_password
+                                        {1,4,4,1,1,1,both,west},    //jta_state
                                         {2,2,1,1,0,1,both,east},    //jco_month
                                         {4,2,1,1,0,0,both,east},    //jco_day
                                         {4,3,1,1,0,0,none,east},    //jbt_ask
